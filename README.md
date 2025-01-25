@@ -6,7 +6,7 @@
 
 アドオンのダウンロードは[コチラ](https://github.com/Naru8521/OpenInv/releases)
 
-クラフターズコロニーは[コチラ](https://minecraft-mcworld.com/92101/)
+クラフターズコロニーは[コチラ](https://minecraft-mcworld.com/119493/)
 
 # 使い方
 <!-- 動画での説明は [コチラ]() -->
