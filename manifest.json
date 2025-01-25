@@ -1,0 +1,30 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "インベントリを確認できます\n製作:なるる\nYouTube:なるる-Naruru",
+        "name": "OpenInv v1.0.0",
+        "uuid": "6ae5734a-c7b2-4210-aa07-520a04428626",
+        "version": [1, 0, 0],
+        "min_engine_version": [1, 21, 51]
+    },
+    "modules": [
+        {
+            "description": "",
+            "type": "script",
+            "language": "javascript",
+            "uuid": "5355bec2-4181-451a-886f-a86502ad22a3",
+            "version": [1, 0, 0],
+            "entry": "scripts/index.js"
+        }
+    ],
+    "dependencies": [
+        {
+            "module_name": "@minecraft/server",
+            "version": "2.0.0-alpha"
+        },
+        {
+            "module_name": "@minecraft/server-ui",
+            "version": "2.0.0-alpha"
+        }
+    ]
+}
