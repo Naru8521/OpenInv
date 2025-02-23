@@ -50,11 +50,26 @@ export default async function SelectItemForm(player, target, slot) {
         return;
     }
     if (selection === 2) {
-        if (typeof slot === "string") targetEquippable.setEquipment(slot);
-        else targetContainer.setItem(slot);
+        const form = new UI.ModalFormData();
+
+        form.title("スワップするアイテム数");
+        form.slider("個数", 1, item.amount, 1, item.amount);
+        form.submitButton("スワップ");
+
+        const { formValues, canceled } = await form.show(player);
+
+        if (canceled) return SelectItemForm(player, target, slot);
+        
+        const amount = formValues[0];
+
+        if (item.amount === amount) item = undefined;
+        else item.amount -= amount;
+
+        if (typeof slot === "string") targetEquippable.setEquipment(slot, item);
+        else targetContainer.setItem(slot, item);
 
         playerContainer.addItem(item);
-        player.sendMessage(`§a${item.typeId}を受け取りました。`);
+        player.sendMessage(`§a${item.typeId}を${amount}個受け取りました。`);
         return;
     }
     if (selection === 3) {
@@ -62,9 +77,19 @@ export default async function SelectItemForm(player, target, slot) {
 
         form.title("削除するアイテム数");
         form.slider("個数", 1, item.amount, 1, item.amount);
+        form.submitButton("削除");
+
+        const { formValues, canceled } = await form.show(player);
+
+        if (canceled) return SelectItemForm(player, target, slot);
         
-        if (typeof slot === "string") targetEquippable.setEquipment(slot);
-        else targetContainer.setItem(slot);
+        const amount = formValues[0];
+
+        if (item.amount === amount) item = undefined;
+        else item.amount -= amount;
+
+        if (typeof slot === "string") targetEquippable.setEquipment(slot, item);
+        else targetContainer.setItem(slot, item);
 
         player.sendMessage(`§a${item.typeId}を§d${target.name}§fの§cインベントリから削除§aしました。`);
         return;
