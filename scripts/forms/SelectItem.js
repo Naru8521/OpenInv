@@ -58,6 +58,11 @@ export default async function SelectItemForm(player, target, slot) {
         return;
     }
     if (selection === 3) {
+        const form = new UI.ModalFormData();
+
+        form.title("削除するアイテム数");
+        form.slider("個数", 1, item.amount, 1, item.amount);
+        
         if (typeof slot === "string") targetEquippable.setEquipment(slot);
         else targetContainer.setItem(slot);
 
