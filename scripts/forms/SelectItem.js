@@ -61,6 +61,8 @@ export default async function SelectItemForm(player, target, slot) {
         if (canceled) return SelectItemForm(player, target, slot);
         
         const amount = formValues[0];
+        
+        // スワップ後のアイテムをターゲットに設置。指定されたアイテム数、表示プレイヤーに与える
 
         if (item.amount === amount) item = undefined;
         else item.amount -= amount;
