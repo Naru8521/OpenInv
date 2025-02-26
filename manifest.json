@@ -2,10 +2,10 @@
     "format_version": 2,
     "header": {
         "description": "インベントリを確認できます\n製作:なるる\nYouTube:なるる-Naruru",
-        "name": "OpenInv v1.0.1",
+        "name": "OpenInv v1.0.2",
         "uuid": "6ae5734a-c7b2-4210-aa07-520a04428626",
-        "version": [1, 0, 1],
-        "min_engine_version": [1, 21, 51]
+        "version": [1, 0, 2],
+        "min_engine_version": [1, 21, 61]
     },
     "modules": [
         {
@@ -13,7 +13,7 @@
             "type": "script",
             "language": "javascript",
             "uuid": "5355bec2-4181-451a-886f-a86502ad22a3",
-            "version": [1, 0, 1],
+            "version": [1, 0, 2],
             "entry": "scripts/index.js"
         }
     ],
