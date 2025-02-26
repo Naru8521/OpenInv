@@ -60,9 +60,10 @@ export default async function SelectItemForm(player, target, slot) {
 
         if (canceled) return SelectItemForm(player, target, slot);
         
+        const cloneItem = item.clone();
         const amount = formValues[0];
         
-        // スワップ後のアイテムをターゲットに設置。指定されたアイテム数、表示プレイヤーに与える
+        cloneItem.amount = amount;
 
         if (item.amount === amount) item = undefined;
         else item.amount -= amount;
@@ -70,8 +71,8 @@ export default async function SelectItemForm(player, target, slot) {
         if (typeof slot === "string") targetEquippable.setEquipment(slot, item);
         else targetContainer.setItem(slot, item);
 
-        playerContainer.addItem(item);
-        player.sendMessage(`§a${item.typeId}を${amount}個受け取りました。`);
+        playerContainer.addItem(cloneItem);
+        player.sendMessage(`§a${cloneItem.typeId}を${amount}個受け取りました。`);
         return;
     }
     if (selection === 3) {
